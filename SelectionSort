@@ -1,0 +1,30 @@
+class SelectionSort 
+{
+	public static void main(String[] args) 
+	{
+		int []a={3,754,56,4,43};
+     selection(a,a.length);
+	}
+	public static void selection(int a[],int n)
+	{
+		int min= a[0];
+    for(int i=0;i<n-1;i++)
+		{
+            for(int j=i+1;j<n;j++)
+			{
+             if(a[i]>a[j])
+				{
+                  min = a[j];
+				  a[j] = a[i];
+				  a[i]=min;
+
+				}
+
+			}
+		}
+       for(int i=0;i<n;i++)
+			{
+           System.out.println(a[i]);
+			}
+	}
+}
