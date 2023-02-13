@@ -1,0 +1,27 @@
+class InsertionSort 
+{
+	
+    public static void sort(int arrSort[]){
+        for(int i=0;i<arrSort.length;i++){
+            int key=arrSort[i];
+            int j=i-1;
+            while(j>=0 && arrSort[j]>key){
+                arrSort[j+1]=arrSort[j];
+                j=j-1;
+            }
+         arrSort[j+1]=key;   
+        }
+		System.out.print("Sorted Elements are..");
+		for(int i=0;i<arrSort.length;i++){
+        System.out.println(arrSort[i]);
+		}
+    }
+
+      
+    public static void main(String args[])
+    {
+        int[] a = {1,76,4,76,45,36,87,55};
+        sort(a);
+    }
+}
+	
