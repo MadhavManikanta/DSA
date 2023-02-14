@@ -1,0 +1,59 @@
+import java.util.Arrays;
+class MergeSort 
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+         int arr[]={23,76,4,98,54,2,99};
+         sort(arr);
+		 System.out.println("Array after Sorting is..");
+		 for(int p=0;p<arr.length;p++){
+    System.out.println(arr[p]);
+	}
+	}
+	public static void sort(int arr[])
+	{
+       if(arr == null || arr.length<2){
+		   return;
+	   }
+	   int mid=arr.length/2;
+	   int []left=Arrays.copyOfRange(arr,0,mid);
+	   int []right=Arrays.copyOfRange(arr,mid,arr.length);
+	   sort(left);
+	   sort(right);
+	   
+	   merge(arr,left,right);
+	    
+	}
+	public static void merge(int[] arr,int[] left,int[] right){
+
+		int i=0,j=0,k=0;
+		while(i<left.length && j<right.length)
+		{
+           
+           if(left[i]<=right[j])
+			{
+			   arr[k]=left[i];
+			   i=i+1;
+			}
+			else
+			{
+				arr[k]=right[j];
+			     j=j+1;
+			}
+         k=k+1;
+		}
+		while(i<left.length){
+           arr[k]=left[i];
+		   i=i+1;
+		   k=k+1;
+		}
+        while(j<right.length){
+           arr[k]=right[j];
+		   j=j+1;
+		   k=k+1;
+		}
+    
+	}
+	
+}
