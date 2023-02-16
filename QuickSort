@@ -1,0 +1,39 @@
+import java.util.*;
+class QuickSort 
+{
+	public static void main(String[] args) 
+	{
+		int []arr={67,43,34,34,2,89,22};
+		quickSort(arr,0,arr.length-1);
+		System.out.println("After Sorting : "+ Arrays.toString(arr));
+	}
+	public static void quickSort(int []arr,int lower,int upper)
+	{
+         if(lower<upper)
+		{
+           int pivot=partition(arr,lower,upper);
+		   quickSort(arr,lower,pivot-1);
+           quickSort(arr,pivot+1,upper);
+
+		}
+	}
+	public static int partition(int[] arr,int lower,int upper)
+	{
+        int pivot=arr[upper];
+		int i=lower-1;
+		for(int j=lower;j<upper;j++)
+		{
+            if(arr[j] <= pivot)
+			{
+               i=i+1;
+			   int temp=arr[i];
+			   arr[i]=arr[j];
+			   arr[j]=temp;
+			}
+         }
+		 int temp=arr[i+1];
+		 arr[i+1]=arr[upper];
+		 arr[upper]=temp;
+		 return i+1;
+	}
+}
